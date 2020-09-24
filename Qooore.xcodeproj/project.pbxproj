@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A30A78F251BD94400B3BAF0 /* QoooreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF82F306251BBE47006D0AFC /* QoooreTests.swift */; };
 		AF82F2F0251BBE43006D0AFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF82F2EF251BBE43006D0AFC /* AppDelegate.swift */; };
 		AF82F2F2251BBE43006D0AFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF82F2F1251BBE43006D0AFC /* SceneDelegate.swift */; };
 		AF82F2F4251BBE43006D0AFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF82F2F3251BBE43006D0AFC /* ViewController.swift */; };
 		AF82F2F7251BBE43006D0AFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF82F2F5251BBE43006D0AFC /* Main.storyboard */; };
 		AF82F2F9251BBE46006D0AFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF82F2F8251BBE46006D0AFC /* Assets.xcassets */; };
 		AF82F2FC251BBE46006D0AFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF82F2FA251BBE46006D0AFC /* LaunchScreen.storyboard */; };
-		AF82F307251BBE47006D0AFC /* QoooreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF82F306251BBE47006D0AFC /* QoooreTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -210,7 +210,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF82F307251BBE47006D0AFC /* QoooreTests.swift in Sources */,
+				2A30A78F251BD94400B3BAF0 /* QoooreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +298,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_MODULE_NAME = Qooore;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -351,6 +352,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				PRODUCT_MODULE_NAME = Qooore;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -362,14 +364,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RV8X95K7PX;
 				INFOPLIST_FILE = Qooore/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = sk.Qooore;
+				PRODUCT_BUNDLE_IDENTIFIER = sk.Qooore1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -379,14 +385,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RV8X95K7PX;
 				INFOPLIST_FILE = Qooore/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = sk.Qooore;
+				PRODUCT_BUNDLE_IDENTIFIER = sk.Qooore1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -399,7 +409,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = QoooreTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -420,7 +430,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = QoooreTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

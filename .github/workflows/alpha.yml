@@ -1,0 +1,24 @@
+name: "IOS upload alpha"
+
+on:
+  push:
+    branch: master
+
+jobs:
+  build:
+    runs-on: macOS-latest
+
+    steps:
+      - name: "Checkout code"
+        uses: actions/checkout@v2
+
+      - name: "Set up Ruby 2.6"
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.6.x
+
+      - name: "Install gem Dependencies"
+        run: gem install bundler && bundle install
+
+      - name: "Xcode install"
+        run: sudo xcode-select -switch /Applications/Xcode_11.5.app
