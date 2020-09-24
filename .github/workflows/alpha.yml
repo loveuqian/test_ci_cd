@@ -23,6 +23,9 @@ jobs:
       - name: "Xcode install"
         run: sudo xcode-select -switch /Applications/Xcode_11.5.app
 
+      - name: "Pod install"
+        run: "pod install"
+
       - name: "Grant permissions"
         run: chmod +rx ./.github/scripts/tests_app.sh
 
