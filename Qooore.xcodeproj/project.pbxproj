@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2A30A78F251BD94400B3BAF0 /* QoooreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF82F306251BBE47006D0AFC /* QoooreTests.swift */; };
+		8D06C714D339950F295242A7 /* Pods_Qooore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E2BE3746711575112113FC /* Pods_Qooore.framework */; };
 		AF82F2F0251BBE43006D0AFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF82F2EF251BBE43006D0AFC /* AppDelegate.swift */; };
 		AF82F2F2251BBE43006D0AFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF82F2F1251BBE43006D0AFC /* SceneDelegate.swift */; };
 		AF82F2F4251BBE43006D0AFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF82F2F3251BBE43006D0AFC /* ViewController.swift */; };
@@ -27,6 +28,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		090A0C4ECC52415B3F4BDC85 /* Pods-Qooore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Qooore.debug.xcconfig"; path = "Target Support Files/Pods-Qooore/Pods-Qooore.debug.xcconfig"; sourceTree = "<group>"; };
+		43E2BE3746711575112113FC /* Pods_Qooore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Qooore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEFA338691ACB925E3E983A3 /* Pods-Qooore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Qooore.release.xcconfig"; path = "Target Support Files/Pods-Qooore/Pods-Qooore.release.xcconfig"; sourceTree = "<group>"; };
 		AF82F2EC251BBE43006D0AFC /* Qooore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Qooore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF82F2EF251BBE43006D0AFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF82F2F1251BBE43006D0AFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D06C714D339950F295242A7 /* Pods_Qooore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,12 +63,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F90C23368CDC5EBF2CAF146 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				43E2BE3746711575112113FC /* Pods_Qooore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7EAD77EE4EF2FFE60446A625 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				090A0C4ECC52415B3F4BDC85 /* Pods-Qooore.debug.xcconfig */,
+				AEFA338691ACB925E3E983A3 /* Pods-Qooore.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		AF82F2E3251BBE43006D0AFC = {
 			isa = PBXGroup;
 			children = (
 				AF82F2EE251BBE43006D0AFC /* Qooore */,
 				AF82F305251BBE47006D0AFC /* QoooreTests */,
 				AF82F2ED251BBE43006D0AFC /* Products */,
+				7EAD77EE4EF2FFE60446A625 /* Pods */,
+				6F90C23368CDC5EBF2CAF146 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,6 +130,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF82F30B251BBE47006D0AFC /* Build configuration list for PBXNativeTarget "Qooore" */;
 			buildPhases = (
+				F31D0224ED166CD7CE77F6B0 /* [CP] Check Pods Manifest.lock */,
 				AF82F2E8251BBE43006D0AFC /* Sources */,
 				AF82F2E9251BBE43006D0AFC /* Frameworks */,
 				AF82F2EA251BBE43006D0AFC /* Resources */,
@@ -194,6 +219,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F31D0224ED166CD7CE77F6B0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Qooore-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AF82F2E8251BBE43006D0AFC /* Sources */ = {
@@ -362,6 +412,7 @@
 		};
 		AF82F30C251BBE47006D0AFC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 090A0C4ECC52415B3F4BDC85 /* Pods-Qooore.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -383,6 +434,7 @@
 		};
 		AF82F30D251BBE47006D0AFC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AEFA338691ACB925E3E983A3 /* Pods-Qooore.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
