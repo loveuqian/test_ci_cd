@@ -23,5 +23,8 @@ jobs:
       - name: "Xcode install"
         run: sudo xcode-select -switch /Applications/Xcode_11.5.app
 
+      - name: "Grant permissions"
+        run: chmod +rx ./.github/scripts/tests_app.sh
+
       - name: "Run tests"
         run: exec ./.github/scripts/tests_app.sh
