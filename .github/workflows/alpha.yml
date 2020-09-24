@@ -26,6 +26,12 @@ jobs:
       - name: "Pod install"
         run: "pod install"
 
+      - name: "Fastlane recheck"
+        run: "fastlane -v"
+
+      - name: "Fastlane inc number"
+        run: "bundle exec fastlane inc"
+
       - name: "Grant permissions"
         run: chmod +rx ./.github/scripts/tests_app.sh
 
