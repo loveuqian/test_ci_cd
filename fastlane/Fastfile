@@ -32,7 +32,13 @@ platform :ios do
       lock_when_sleeps: true
     )
 
-    get_certificates
+    get_certificates(
+      keychain_path: ENV["CERT_KEYCHAIN_PATH"],
+      generate_apple_certs: true,
+      username: ENV["FASTLANE_USER"],
+      team_id: ENV["TEAM_ID"],
+      team_name: ENV["TEAM_NAME"]
+    )
 
     get_provisioning_profile(
       app_identifier: ENV["APP_IDENTIFIER"],
