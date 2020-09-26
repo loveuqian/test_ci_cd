@@ -34,7 +34,7 @@ platform :ios do
 
     match(
       type: "appstore",
-      readonly: is_ci,
+      readonly: !is_ci,
       app_identifier: ENV["APP_IDENTIFIER"],
       username: ENV["FASTLANE_USER"],
       team_id: ENV["TEAM_ID"],
