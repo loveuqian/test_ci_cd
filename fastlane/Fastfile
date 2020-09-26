@@ -30,6 +30,7 @@ platform :ios do
       team_id: ENV["TEAM_ID"],
       team_name: ENV["TEAM_NAME"],
       force: true
+      verbose: true
     );
   
     gym(
