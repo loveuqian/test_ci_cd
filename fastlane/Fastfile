@@ -32,18 +32,22 @@ platform :ios do
       verbose: true
     );
   
-    gym(
+    build_app(
       scheme: "Qooore",
       workspace: "Qooore.xcworkspace",
       clean: true,
-      output_directory: './builds',
       output_name: "alpha_qooore",
       silent: false,
       xcargs: "-UseModernBuildSystem=NO",
-      include_bitcode: true,
-      export_method: "app-store",
-      include_symbols: true,
     );
+
+    upload_to_testflight(
+      username: ENV["FASTLANE_USER"],
+      app_identifier: ENV["APP_IDENTIFIER"],
+      ipa: "./builds/alpha_qooore.ipa",
+      skip_waiting_for_build_processing: true
+      skip_submission: true
+    )
 
     sh('sh ../.github/scripts/clean_all.sh')
   end
