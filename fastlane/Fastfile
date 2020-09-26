@@ -24,12 +24,11 @@ platform :ios do
   lane :get_certificates_or_generate do
     match(
       type: "appstore",
-      readonly: !is_ci,
+      readonly: is_ci,
       app_identifier: ENV["APP_IDENTIFIER"],
       username: ENV["FASTLANE_USER"],
       team_id: ENV["TEAM_ID"],
       team_name: ENV["TEAM_NAME"],
-      force: true
       verbose: true
     );
   
