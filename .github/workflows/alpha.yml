@@ -34,8 +34,7 @@ jobs:
 
       - name: "Grant permissions"
         run: |
-        chmod +rx ./.github/scripts/tests_app.sh
-        chmod +rx ./.github/scripts/clean_all.sh
+        chmod +rx ./.github/scripts/tests_app.sh ./.github/scripts/clean_all.sh
 
       - name: "Run tests"
         run: exec ./.github/scripts/tests_app.sh
