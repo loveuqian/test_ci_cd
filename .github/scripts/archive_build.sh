@@ -2,6 +2,6 @@
 
 set -eo pipefail
 
-xcodebuild -workspace ../../Qooore.xcworkspace \
+xcodebuild -workspace Qooore.xcworkspace \
   -scheme Qooore clean archive -configuration release \
-  -sdk iphoneos -archivePath ../../builds/Qooore.xcarchive
+  -sdk iphoneos -archivePath ./builds/Qooore.xcarchive

@@ -2,6 +2,6 @@
 
 set -eo pipefail
 
-xcodebuild -exportArchive -archivePath  ../../builds/Qooore.xcarchive \
+xcodebuild -exportArchive -archivePath  Qooore.xcarchive \
   -exportOptionsPlist ExportOptions.plist \
-  -exportPath ../../builds/alpha-qooore.ipa
+  -exportPath ./builds/alpha-qooore.ipa
