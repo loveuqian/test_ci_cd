@@ -33,14 +33,13 @@ jobs:
         run: "bundle exec fastlane inc"
 
       - name: "Grant permissions"
-        run: |
-        chmod +rx ./.github/scripts/tests_app.sh ./.github/scripts/clean_all.sh
+        run: chmod +rx ./.github/scripts/tests_app.sh ./.github/scripts/clean_all.sh
 
       - name: "Run tests"
         run: exec ./.github/scripts/tests_app.sh
 
       - name: "Run get certificates"
-        run: bundle exec fastane get_certificates_or_generate
+        run: bundle exec fastlane get_certificates_or_generate
 
       - name: "delete"
         run: "sh ./.github/scripts/clean_all.sh"
