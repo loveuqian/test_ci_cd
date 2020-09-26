@@ -32,21 +32,16 @@ platform :ios do
       lock_when_sleeps: true
     )
 
-    get_certificates(
-      keychain_path: ENV["CERT_KEYCHAIN_PATH"],
-      generate_apple_certs: true,
-      username: ENV["FASTLANE_USER"],
-      team_id: ENV["TEAM_ID"],
-      team_name: ENV["TEAM_NAME"]
-    )
-
-    get_provisioning_profile(
+    match(
+      type: "appstore",
+      readonly: is_ci,
       app_identifier: ENV["APP_IDENTIFIER"],
       username: ENV["FASTLANE_USER"],
       team_id: ENV["TEAM_ID"],
       team_name: ENV["TEAM_NAME"],
-    )
-
+      force: true
+    );
+  
     gym(
       scheme: "Qooore",
       workspace: "Qooore.xcworkspace",
