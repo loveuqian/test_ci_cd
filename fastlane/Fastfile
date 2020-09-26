@@ -24,7 +24,7 @@ platform :ios do
   lane :get_certificates_or_generate do
     match(
       type: "appstore",
-      readonly: is_ci,
+      readonly: true,
       app_identifier: ENV["APP_IDENTIFIER"],
       username: ENV["FASTLANE_USER"],
       team_id: ENV["TEAM_ID"],
