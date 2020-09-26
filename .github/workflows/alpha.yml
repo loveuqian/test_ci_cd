@@ -34,9 +34,6 @@ jobs:
 
       - name: "Grant permissions"
         run: chmod +rx ./.github/scripts/tests_app.sh ./.github/scripts/clean_all.sh
-      
-      - name: "Nuke"
-        run: bundle exec fastlane match nuke distribution
 
       - name: "Run get certificates"
         run: bundle exec fastlane get_certificates_or_generate
