@@ -1,0 +1,7 @@
+git_url("https://dvereshchagin:gugaho4411@github.com/dvereshchagin/qooore-profiles.git")
+storage_mode("git")
+
+type("development")
+app_identifier(["com.taglife.taglife2"])
+# username("ttimatika@gmail.com")
+username("taglife@yandex.ru")
