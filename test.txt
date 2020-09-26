@@ -75,3 +75,5 @@
       team_id: ENV["TEAM_ID"],
       team_name: ENV["TEAM_NAME"],
     )
+
+        run: bundle exec fastlane deploy

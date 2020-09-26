@@ -49,7 +49,7 @@ platform :ios do
     upload_to_testflight(
       username: ENV["FASTLANE_USER"],
       app_identifier: ENV["APP_IDENTIFIER"],
-      ipa: "alpha_qooore.ipa",
+      ipa: "../builds/alpha_qooore.ipa/Qooore.ipa",
       skip_waiting_for_build_processing: true,
       skip_submission: true
     );
