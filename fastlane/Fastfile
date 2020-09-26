@@ -1,4 +1,5 @@
 ENV["FASTLANE_PASSWORD"] = "1HateInstagram1HateInstagram"
+ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"] = "lbgo-iufh-ydpg-pqhv"
 ENV["MATCH_KEYCHAIN_PASSWORD"] = "123456"
 ENV["APP_IDENTIFIER"] = "com.taglife.taglife2"
 ENV["TEAM_ID"] = "H26DA27U2W"
@@ -31,24 +32,30 @@ platform :ios do
       team_name: ENV["TEAM_NAME"],
       verbose: true
     );
-  
-    build_app(
+  end
+
+  desc "Build App"
+  lane :buidling_app do
+      build_app(
       scheme: "Qooore",
       workspace: "Qooore.xcworkspace",
       clean: true,
       output_name: "alpha_qooore",
-      silent: false,
-      xcargs: "-UseModernBuildSystem=NO",
+      silent: false
     );
+  end
 
+  desc "Deploy App to TestFlight" do
+  lane :deploy do
     upload_to_testflight(
       username: ENV["FASTLANE_USER"],
       app_identifier: ENV["APP_IDENTIFIER"],
-      ipa: "./builds/alpha_qooore.ipa",
+      ipa: "alpha_qooore.ipa",
       skip_waiting_for_build_processing: true,
       skip_submission: true
     )
 
     sh('sh ../.github/scripts/clean_all.sh')
+
   end
 end

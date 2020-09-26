@@ -38,6 +38,12 @@ jobs:
       - name: "Run get certificates"
         run: bundle exec fastlane get_certificates_or_generate
 
+      - name: "Build app"
+        run: bundle exec fastlane buidling_app
+
+      - name: "Deploy app"
+        run: bundle exec fastlane deploy
+
       - name: "delete"
         run: "sh ./.github/scripts/clean_all.sh"
 
@@ -47,3 +53,17 @@ jobs:
           str="$(jq '.head_commit.message' $GITHUB_EVENT_PATH)"
           echo ::set-output name=title::${str%%\\n*} | tr -d '"'
           echo ::set-output name=body::${str##*\\n} | tr -d '"'
+      
+      - name: "Create Release"
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{steps.tagName.outputs.tag}}
+          release_name: Release ${{steps.tagName.outputs.tag}}
+          body: |
+              "${{ steps.commit.outputs.title}}"
+              Changes in this Release:
+              "${{ steps.commit.outputs.body}}"
+          draft: false
+          prerelease: false
