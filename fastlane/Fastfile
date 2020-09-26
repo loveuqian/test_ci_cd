@@ -18,6 +18,10 @@ platform :ios do
     get_build_number
     increment_build_number(xcodeproj: "Qooore.xcodeproj")
     increment_version_number()
+    git_commit(path: ["./Qooore.xcodeproj/project.pbxproj", "./Qooore/Info.plist", "./QoooreTests/Info.plist."], message: "Bumped version")
+    commit_version_bump(
+      message: get_version_number()
+    )
   end
 
   desc "Get certificates"
