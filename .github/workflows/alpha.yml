@@ -56,7 +56,6 @@ jobs:
       - name: "Get tag name"
         uses: olegtarasov/get-tag@v2
         id: tagName
-        run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
 
 
       - name: "get commit"
