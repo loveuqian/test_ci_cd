@@ -29,6 +29,9 @@ jobs:
       - name: "Fastlane recheck"
         run: "fastlane -v"
 
+      - name: "Run tests"
+        run: "sh ./.github/scripts/tests_app.sh"
+
       - name: "Fastlane inc number"
         run: "bundle exec fastlane inc"
 
@@ -38,14 +41,14 @@ jobs:
       - name: "Run get certificates"
         run: bundle exec fastlane get_certificates_or_generate
 
-      - name: "Deploy app"
-        run: sh ./.github/scripts/archive_build.sh
+      # - name: "Deploy app"
+      #   run: sh ./.github/scripts/archive_build.sh
 
-      - name: "Export app"
-        run: sh ./.github/scripts/export_app.sh
+      # - name: "Export app"
+      #   run: sh ./.github/scripts/export_app.sh
 
-      - name: "Deploy TestFlight"
-        run: bundle exec fastlane deploy
+      # - name: "Deploy TestFlight"
+      #   run: bundle exec fastlane deploy
 
       - name: "delete"
         run: "sh ./.github/scripts/clean_all.sh"

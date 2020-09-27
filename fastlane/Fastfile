@@ -15,13 +15,29 @@ default_platform(:ios)
 platform :ios do
   desc "Description of what the lane does"
   lane :inc do
+    current_branch = git_branch
     get_build_number
     increment_build_number(xcodeproj: "Qooore.xcodeproj")
     increment_version_number()
 
     commit_version_bump(
-      message: "Bumped version of app to #{get_version_number}"
+      message: "Bumped version of app to #{get_version_number}",
       force: true
+    )
+
+    add_git_tag(
+      grouping: "alpha-releases",
+      prefix: "test-",
+      postfix: "_alpha",
+      build_number: get_version_number
+    )
+
+    push_to_git_remote(
+      remote: "origin2",
+      local_branch: current_branch,
+      remote_branch: current_branch,
+      force: true,
+      tags: true
     )
   end
 
@@ -52,7 +68,7 @@ platform :ios do
       scheme: "Qooore",
       workspace: "Qooore.xcworkspace",
       clean: true,
-      output_name: "alpha_qooore",
+      output_name: "test-#{get_version_number}_alpha",
       silent: false
     );
   end
