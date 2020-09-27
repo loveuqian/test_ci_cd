@@ -57,6 +57,12 @@ jobs:
         id: tagName
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
 
+      - name: "get tag name 2"
+        id: get_version
+        uses: battila7/get-version-action@v2
+        run: echo ${{ steps.get_version.outputs.version }}
+        run: echo ${{ steps.get_version.outputs.version-without-v }}
+
       - name: "get commit"
         id: commit
         run: |
