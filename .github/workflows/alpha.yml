@@ -64,6 +64,14 @@ jobs:
       - name: "test"
         run: echo ${{ steps.get_version.outputs.tag }}
 
+      - id: get-id
+        uses: actions/github-script@0.9.0
+        with:
+          script: |
+            const id = ${{ steps.get_version.outputs.tag }}.split('/')[2]
+            core.setOutput('id', id)
+      - run: echo "${{steps.get-id.outputs.id}}"
+
       - name: "get commit"
         id: commit
         run: |
@@ -77,7 +85,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ steps.tagName.outputs.VERSION }}
+          tag_name: ${{ steps.get_version.outputs.tag }}
           release_name: Release ${{ steps.tagName.outputs.VERSION }}
           body: |
               "${{ steps.commit.outputs.title}}"
