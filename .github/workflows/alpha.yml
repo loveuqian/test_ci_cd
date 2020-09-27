@@ -31,8 +31,8 @@ jobs:
       - name: "Fastlane recheck"
         run: "fastlane -v"
 
-      # - name: "Run tests"
-      #   run: "sh ./.github/scripts/tests_app.sh"
+      - name: "Run tests"
+        run: "sh ./.github/scripts/tests_app.sh"
 
       - name: "Fastlane inc number"
         run: "bundle exec fastlane inc"
@@ -40,8 +40,8 @@ jobs:
       - name: "Grant permissions"
         run: sh ./.github/scripts/grant_permissions.sh
 
-      # - name: "Run get certificates"
-      #   run: bundle exec fastlane get_certificates_or_generate
+      - name: "Run get certificates"
+        run: bundle exec fastlane get_certificates_or_generate
 
       # - name: "Deploy app"
       #   run: sh ./.github/scripts/archive_build.sh
@@ -55,18 +55,11 @@ jobs:
       # - name: "delete"
       #   run: "sh ./.github/scripts/clean_all.sh"
 
-      - name: "get tag name 2"
+      - name: "Get latest tag name"
         id: get_version
         uses: WyriHaximus/github-action-get-previous-tag@master
 
-      - name: "test"
-        run: |
-          echo ${{ steps.get_version.outputs.tag }}
-          echo "::set-env name=RELEASE_NAME::test-1.0.15_alpha$ZIP"
-          echo $RELEASE_NAME
-          echo ${{ env.RELEASE_NAME }}
-
-      - name: "get commit"
+      - name: "Get commit"
         id: commit
         run: |
           str="$(jq '.head_commit.message' $GITHUB_EVENT_PATH)"
