@@ -53,10 +53,6 @@ jobs:
       # - name: "delete"
       #   run: "sh ./.github/scripts/clean_all.sh"
 
-      - name: "Get tag name"
-        id: tagName
-        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
-
       - name: "get tag name 2"
         id: get_version
         uses: WyriHaximus/github-action-get-previous-tag@master
@@ -64,13 +60,11 @@ jobs:
       - name: "test"
         run: echo ${{ steps.get_version.outputs.tag }}
 
-      - id: get-id
-        uses: actions/github-script@0.9.0
-        with:
-          script: |
-            const id = ${{ steps.get_version.outputs.tag }}.split('/')[2]
-            core.setOutput('id', id)
-      - run: echo "${{steps.get-id.outputs.id}}"
+      - name: Get tag
+        id: tag
+        uses: dawidd6/action-get-tag@v1
+      - name: Use tag
+        run: echo ${{steps.tag.outputs.tag}}
 
       - name: "get commit"
         id: commit
