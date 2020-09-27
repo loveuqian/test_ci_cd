@@ -95,6 +95,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./assembles/$RELEASE_NAME
+          asset_path: ./assembles/test-1.0.15_alpha.zip
           asset_name: $RELEASE_NAME
           asset_content_type: application/zip
