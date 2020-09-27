@@ -164,7 +164,7 @@ platform :ios do
     upload_to_testflight(
       username: ENV["FASTLANE_USER"],
       app_identifier: ENV["APP_IDENTIFIER"],
-      ipa: "./assembles/#{get_version_number}/test-#{get_version_number}_alpha.ipa",
+      ipa: "./assembles/test-#{get_version_number}/test-#{get_version_number}_alpha.ipa",
       skip_waiting_for_build_processing: true,
       skip_submission: true
     );
