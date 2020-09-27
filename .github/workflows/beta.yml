@@ -29,8 +29,8 @@ jobs:
       - name: "Fastlane recheck"
         run: "fastlane -v"
 
-      - name: "Run tests"
-        run: "sh ./.github/scripts/tests_app.sh"
+      # - name: "Run tests"
+      #   run: "sh ./.github/scripts/tests_app.sh"
 
       - name: "Fastlane inc number"
         run: "bundle exec fastlane inc_beta"
