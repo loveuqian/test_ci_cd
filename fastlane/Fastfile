@@ -33,7 +33,7 @@ platform :ios do
     )
 
     push_to_git_remote(
-      remote: "origin2",
+      remote: "https://dvereshchagin:gugaho4411@github.com/dvereshchagin/qooore-profiles.git",
       local_branch: current_branch,
       remote_branch: current_branch,
       force: true,
