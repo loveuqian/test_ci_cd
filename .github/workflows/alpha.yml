@@ -38,8 +38,8 @@ jobs:
       - name: "Grant permissions"
         run: sh ./.github/scripts/grant_permissions.sh
 
-      - name: "Run get certificates"
-        run: bundle exec fastlane get_certificates_or_generate
+      # - name: "Run get certificates"
+      #   run: bundle exec fastlane get_certificates_or_generate
 
       # - name: "Deploy app"
       #   run: sh ./.github/scripts/archive_build.sh
@@ -50,12 +50,14 @@ jobs:
       # - name: "Deploy TestFlight"
       #   run: bundle exec fastlane deploy
 
-      - name: "delete"
-        run: "sh ./.github/scripts/clean_all.sh"
+      # - name: "delete"
+      #   run: "sh ./.github/scripts/clean_all.sh"
 
       - name: "Get tag name"
         uses: olegtarasov/get-tag@v2
         id: tagName
+        run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
+
 
       - name: "get commit"
         id: commit
@@ -70,8 +72,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: $GIT_TAG_NAME
-          release_name: Release $GIT_TAG_NAME
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
           body: |
               "${{ steps.commit.outputs.title}}"
               Changes in this Release:
@@ -86,6 +88,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./builds/test-1.0.15_alpha.zip
+          asset_path: ./assembles/test-1.0.15_alpha.zip
           asset_name: test-1.0.15_alpha.zip
           asset_content_type: application/zip

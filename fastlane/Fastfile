@@ -16,7 +16,7 @@ platform :ios do
   desc "Description of what the lane does"
   lane :inc do
     current_branch = git_branch
-    get_build_number
+    get_build_numberommit 
     increment_build_number(xcodeproj: "Qooore.xcodeproj")
     increment_version_number()
 
