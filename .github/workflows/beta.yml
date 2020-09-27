@@ -1,4 +1,4 @@
-name: "IOS upload alpha"
+name: "IOS upload beta"
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    runs-on: macOS-latest
+    runs-on: self-hosted
 
     steps:
       - name: "Checkout code"
@@ -41,14 +41,17 @@ jobs:
       - name: "Run get certificates"
         run: bundle exec fastlane get_certificates_or_generate
 
+      - name: "Build app"
+        run: bundle exec fastlane buildling_app_beta
+
       # - name: "Deploy app"
       #   run: sh ./.github/scripts/archive_build.sh
 
       # - name: "Export app"
       #   run: sh ./.github/scripts/export_app.sh
 
-      # - name: "Deploy TestFlight"
-      #   run: bundle exec fastlane deploy
+      - name: "Deploy TestFlight"
+        run: bundle exec fastlane deploy_beta
 
       # - name: "delete"
       #   run: "sh ./.github/scripts/clean_all.sh"
