@@ -26,10 +26,7 @@ platform :ios do
     )
 
     add_git_tag(
-      grouping: "alpha-releases",
-      prefix: "test-",
-      postfix: "_alpha",
-      build_number: get_version_number
+      tag: "test-#{get_version_number}_alpha"
     )
 
     push_to_git_remote(

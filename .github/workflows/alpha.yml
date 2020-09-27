@@ -60,12 +60,6 @@ jobs:
       - name: "test"
         run: echo ${{ steps.get_version.outputs.tag }}
 
-      - name: Get tag
-        id: tag
-        uses: dawidd6/action-get-tag@v1
-      - name: Use tag
-        run: echo ${{steps.tag.outputs.tag}}
-
       - name: "get commit"
         id: commit
         run: |
