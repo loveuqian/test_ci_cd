@@ -42,8 +42,8 @@ jobs:
       - name: "Run get certificates"
         run: bundle exec fastlane get_certificates_or_generate
       
-      - name: "Build app"
-        run: bundle exec fastlane buildling_app_release
+      # - name: "Build app"
+      #   run: bundle exec fastlane buildling_app_release
 
       # - name: "Deploy app"
       #   run: sh ./.github/scripts/archive_build.sh
@@ -51,8 +51,8 @@ jobs:
       # - name: "Export app"
       #   run: sh ./.github/scripts/export_app.sh
 
-      # - name: "Deploy TestFlight"
-      #   run: bundle exec fastlane deploy_release
+      - name: "Deploy TestFlight"
+        run: bundle exec fastlane deploy_release
 
       # - name: "delete"
       #   run: "sh ./.github/scripts/clean_all.sh"
