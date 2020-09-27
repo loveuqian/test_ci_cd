@@ -148,8 +148,7 @@ platform :ios do
       clean: true,
       output_directory: "./assembles/#{get_version_number}_beta",
       output_name: "#{get_version_number}_beta",
-      silent: false,
-  }
+      silent: false
     );
 
     zip(
