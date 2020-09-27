@@ -58,7 +58,6 @@ jobs:
         id: tagName
         with:
           tagRegex: "(.*)/(.*)"
-          tagRegexGroup: 2
 
       - name: "get commit"
         id: commit
@@ -73,8 +72,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: test-1.0.16_alpha
-          release_name: Release ${{ github.event.release.tag_name }}
+          tag_name: ${{ steps.tagName.outputs.tag }}
+          release_name: Release ${{ steps.tagName.outputs.tag }}
           body: |
               "${{ steps.commit.outputs.title}}"
               Changes in this Release:
@@ -89,6 +88,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./test-1.0.15_alpha.zip
+          asset_path: ./builds/test-1.0.15_alpha.zip
           asset_name: test-1.0.15_alpha.zip
           asset_content_type: application/zip
