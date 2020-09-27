@@ -1,4 +1,4 @@
-name: "IOS upload alpha"
+name: "IOS upload release"
 
 on:
   push:
