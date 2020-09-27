@@ -33,7 +33,7 @@ platform :ios do
     )
 
     push_to_git_remote(
-      remote: "https://dvereshchagin:gugaho4411@github.com/dvereshchagin/qooore-profiles.git",
+      remote: "https://github.com/dvereshchagin/test_ci_cd.git",
       local_branch: current_branch,
       remote_branch: current_branch,
       force: true,
