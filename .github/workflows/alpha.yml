@@ -59,12 +59,10 @@ jobs:
 
       - name: "get tag name 2"
         id: get_version
-        uses: battila7/get-version-action@v2
+        uses: WyriHaximus/github-action-get-previous-tag@master
 
       - name: "test"
-        run: |
-          echo ${{ steps.get_version.outputs.version }}
-          echo ${{ steps.get_version.outputs.version-without-v }}
+        run: echo ${{ steps.get_version.outputs.tag }}
 
       - name: "get commit"
         id: commit
