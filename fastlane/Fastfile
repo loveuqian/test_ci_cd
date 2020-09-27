@@ -88,6 +88,15 @@ platform :ios do
   desc "Get certificates"
   lane :get_certificates_or_generate do
 
+    create_keychain(
+    name: "KeychainName",
+    password: "123456",
+    default_keychain: true,
+    unlock: true,
+    timeout: 3600,
+    lock_when_sleeps: true
+    )
+
     match(
       type: "appstore",
       readonly: true,
@@ -95,7 +104,9 @@ platform :ios do
       username: ENV["FASTLANE_USER"],
       team_id: ENV["TEAM_ID"],
       team_name: ENV["TEAM_NAME"],
-      verbose: true
+      verbose: true,
+      keychain_name: "KeychainName",
+      keychain_password: "123456"
     );
   end
 
