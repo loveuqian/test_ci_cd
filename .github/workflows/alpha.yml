@@ -53,6 +53,13 @@ jobs:
       - name: "delete"
         run: "sh ./.github/scripts/clean_all.sh"
 
+      - name: "Get tag name"
+        uses: olegtarasov/get-tag@v2
+        id: tagName
+        with:
+          tagRegex: "(.*)/(.*)"
+          tagRegexGroup: 2
+
       - name: "get commit"
         id: commit
         run: |
