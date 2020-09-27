@@ -56,8 +56,6 @@ jobs:
       - name: "Get tag name"
         uses: olegtarasov/get-tag@v2
         id: tagName
-        with:
-          tagRegex: "(.*)/(.*)"
 
       - name: "get commit"
         id: commit
