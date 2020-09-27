@@ -72,6 +72,13 @@ platform :ios do
       output_name: "test-#{get_version_number}_alpha",
       silent: false
     );
+
+    zip(
+      path: "test-#{get_version_number}_alpha.ipa",
+      output_path: "test-#{get_version_number}_alpha.zip",
+      verbose: true
+    );
+
   end
 
   desc "Deploy App to TestFlight" do
