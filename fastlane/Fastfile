@@ -48,7 +48,8 @@ platform :ios do
       default_keychain: true,
       unlock: true,
       timeout: 3600,
-      lock_when_sleeps: true
+      lock_when_sleeps: true,
+      password: "123456"
     )
 
     match(
