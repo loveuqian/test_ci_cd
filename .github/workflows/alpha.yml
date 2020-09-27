@@ -2,7 +2,7 @@ name: "IOS upload alpha"
 
 on:
   push:
-    tags:
+    branches:
       - "test-*"
 
 jobs:
