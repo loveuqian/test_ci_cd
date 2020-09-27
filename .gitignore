@@ -22,7 +22,5 @@ Pods
 Podfile.lock
 
 #fastlane
-*.zip
-*.ipa
 fastlane/report.xml
 fastlane/README.md
