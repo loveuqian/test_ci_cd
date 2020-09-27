@@ -54,9 +54,8 @@ jobs:
       #   run: "sh ./.github/scripts/clean_all.sh"
 
       - name: "Get tag name"
-        uses: olegtarasov/get-tag@v2
         id: tagName
-
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
 
       - name: "get commit"
         id: commit
@@ -71,8 +70,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
+          tag_name: ${{ steps.tagName.outputs.VERSION }}
+          release_name: Release ${{ steps.tagName.outputs.VERSION }}
           body: |
               "${{ steps.commit.outputs.title}}"
               Changes in this Release:
