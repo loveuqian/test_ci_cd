@@ -87,14 +87,6 @@ platform :ios do
 
   desc "Get certificates"
   lane :get_certificates_or_generate do
-    create_keychain(
-      name: "KeychainName",
-      default_keychain: true,
-      unlock: true,
-      timeout: 3600,
-      lock_when_sleeps: true,
-      password: "123456"
-    )
 
     match(
       type: "appstore",
