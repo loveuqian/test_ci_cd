@@ -3,7 +3,7 @@ name: "IOS upload alpha"
 on:
   push:
     branches:
-      - "test-*"
+      - "issue-*"
 
 jobs:
   build:
