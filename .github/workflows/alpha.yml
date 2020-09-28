@@ -2,7 +2,7 @@ name: "IOS upload alpha"
 
 on:
   push:
-    tags:
+    branches:
       - "test-*"
 
 jobs:
@@ -33,26 +33,29 @@ jobs:
       - name: "Run tests"
         run: "sh ./.github/scripts/tests_app.sh"
 
-      - name: "Fastlane inc number"
-        run: "bundle exec fastlane inc"
+      - name: "Fastlane increment build number"
+        run: "bundle exec fastlane inc GIT_URL=${{ secrets.GIT_URL }}"
 
       - name: "Grant permissions"
         run: sh ./.github/scripts/grant_permissions.sh
 
       - name: "Run get certificates"
-        run: bundle exec fastlane get_certificates_or_generate
+        run: |
+          bundle exec fastlane get_certificates_or_generate
+           APP_IDENTIFIER=${{ secrets.APP_IDENTIFIER }}
+           FASTLANE_USER=${{ secrets.FASTLANE_USER }}
+           TEAM_ID=${{ secrets.TEAM_ID }}
+           TEAM_NAME=${{ secrets.TEAM_NAME }}
 
-      # - name: "Deploy app"
-      #   run: sh ./.github/scripts/archive_build.sh
+      - name: "Build app"
+        run: bundle exec fastlane buildling_app
 
-      # - name: "Export app"
-      #   run: sh ./.github/scripts/export_app.sh
-
-      # - name: "Deploy TestFlight"
-      #   run: bundle exec fastlane deploy
-
-      # - name: "delete"
-      #   run: "sh ./.github/scripts/clean_all.sh"
+      - name: "Deploy TestFlight"
+        run: |
+          bundle exec fastlane deploy
+            APP_IDENTIFIER=${{ secrets.APP_IDENTIFIER }}
+            APPLE_ID=${{ secrets.APPLE_ID }}
+            FASTLANE_USER=${{ secrets.FASTLANE_USER }}
 
       - name: "Get latest tag name"
         id: get_version
