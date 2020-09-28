@@ -30,11 +30,11 @@ jobs:
       - name: "Fastlane recheck"
         run: "fastlane -v"
 
-      - name: "Run tests"
+    - name: "Run tests"
         run: "sh ./.github/scripts/tests_app.sh"
 
       - name: "Fastlane inc number"
-        run: "bundle exec fastlane inc"
+        run: "bundle exec fastlane inc FASTLANE_PASSWORD=${{ secrets.FASTLANE_PASSWORD }} GIT_URL=${{ secrets.GIT_URL }}"
 
       - name: "Grant permissions"
         run: sh ./.github/scripts/grant_permissions.sh

@@ -1,4 +1,3 @@
-ENV["FASTLANE_PASSWORD"] = "1HateInstagram1HateInstagram"
 ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"] = "qscs-dpgn-sdrf-vllw"
 ENV["MATCH_KEYCHAIN_PASSWORD"] = "123456"
 ENV["APP_IDENTIFIER"] = "com.taglife.taglife2"
@@ -30,7 +29,7 @@ platform :ios do
     )
 
     push_to_git_remote(
-      remote: "https://github.com/dvereshchagin/test_ci_cd.git",
+      remote: ENV["GIT_URL"],
       local_branch: current_branch,
       remote_branch: current_branch,
       force: true,
