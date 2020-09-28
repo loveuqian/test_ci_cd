@@ -30,17 +30,22 @@ jobs:
       - name: "Fastlane recheck"
         run: "fastlane -v"
 
-    - name: "Run tests"
-        run: "sh ./.github/scripts/tests_app.sh"
+    # - name: "Run tests"
+    #     run: "sh ./.github/scripts/tests_app.sh"
 
       - name: "Fastlane inc number"
-        run: "bundle exec fastlane inc FASTLANE_PASSWORD=${{ secrets.FASTLANE_PASSWORD }} GIT_URL=${{ secrets.GIT_URL }}"
+        run: "bundle exec fastlane inc GIT_URL=${{ secrets.GIT_URL }}"
 
       - name: "Grant permissions"
         run: sh ./.github/scripts/grant_permissions.sh
 
       - name: "Run get certificates"
-        run: bundle exec fastlane get_certificates_or_generate
+        run: |
+          bundle exec fastlane get_certificates_or_generate
+           APP_IDENTIFIER=${{ secrets.APP_IDENTIFIER }}
+           FASTLANE_USER=${{ secrets.FASTLANE_USER }}
+           TEAM_ID=${{ secrets.TEAM_ID }}
+           TEAM_NAME=${{ secrets.TEAM_NAME }}
 
       - name: "Build app"
         run: bundle exec fastlane buildling_app

@@ -1,9 +1,5 @@
 ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"] = "qscs-dpgn-sdrf-vllw"
 ENV["MATCH_KEYCHAIN_PASSWORD"] = "123456"
-ENV["APP_IDENTIFIER"] = "com.taglife.taglife2"
-ENV["TEAM_ID"] = "H26DA27U2W"
-ENV["TEAM_NAME"] = "Alex Petrov"
-ENV["FASTLANE_USER"] = "taglife@yandex.ru"
 ENV["FASTLANE_SESSION"] = '---\n- !ruby/object:HTTP::Cookie\n  name: DES5c9a8beaa1594b32990e69d5b66458cc1\n  value: HSARMTKNSRVXWFlaT0LcZnz6RtnyWUPsFubG79NPnPmWK47tsMhY0LQ3ZbY8eTUhvdThtBkGBxqjow2zc+EYepkeSDdYTD2qetdQahf7XE+3WhrP1prwcuLeCyEZQWebl01F7kZjo2amdPk4PG8TSRVX\n  domain: idmsa.apple.com\n  for_domain: true\n  path: "/"\n  secure: true\n  httponly: true\n  expires:\n  max_age: 2592000\n  created_at: 2020-09-26 12:15:30.166061000 +02:00\n  accessed_at: 2020-09-28 12:11:07.825193000 +02:00\n- !ruby/object:HTTP::Cookie\n  name: myacinfo\n  value: DAWTKNV2e2b00e354e01ccc4ffbcd6072b1201d66d3b962bfa43b07692b8adcb9671b263b524a40eec670ec0ef2c9904ef888aa4a11f4bd0fbcedd03e47c39ec7e333769e5f973584aeaee9addd28db8f6777a625a893fd410205b9c38dad73619c0e540527918d771e719cb02b96b65d4d88f8556ea2baa2a552b7527275dfa17edb94bdb9b0d1bb1fa46d0711bdd69e9a0d05cdec410496a8f085adb95c96f4e1901e490581fb6d71c8b3c8a5778cb0ae6a73a5e0095102020d294baa898748dfa79a50b823cdd7bc1f0d6c67adc9ee059da5e9ceea50d0afd194eb0c716302a180057201bc377ca2a7af6a060bfd9963b35356bd6be3d12ae4f540eae2e73f8d0fb8537333134333966306335383634336633353862633631636661656565366539613765663966323266MVRYV2\n  domain: apple.com\n  for_domain: true\n  path: "/"\n  secure: true\n  httponly: true\n  expires:\n  max_age:\n  created_at: 2020-09-28 12:11:08.515493000 +02:00\n  accessed_at: 2020-09-28 12:11:08.516185000 +02:00\n- !ruby/object:HTTP::Cookie\n  name: dqsid\n  value: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MDEyODc4NjgsImp0aSI6IlhxcV9laW0yN1czUC1VcFc2dW1DUmcifQ.brqvopCTo-xTk4d9AEE-jKcjHQuUE05RYwJXy1IRhrU\n  domain: appstoreconnect.apple.com\n  for_domain: false\n  path: "/"\n  secure: true\n  httponly: true\n  expires:\n  max_age: 1800\n  created_at: &1 2020-09-28 12:11:09.134789000 +02:00\n  accessed_at: *1\n'
 ENV["MATCH_PASSWORD"] = "123456"
 
@@ -54,7 +50,7 @@ platform :ios do
     )
 
     push_to_git_remote(
-      remote: "https://github.com/dvereshchagin/test_ci_cd.git",
+      remote: ENV[GIT_URL],
       local_branch: current_branch,
       remote_branch: current_branch,
       force: true,
@@ -76,7 +72,7 @@ platform :ios do
     )
 
     push_to_git_remote(
-      remote: "https://github.com/dvereshchagin/test_ci_cd.git",
+      remote: ENV[GIT_URL],
       local_branch: current_branch,
       remote_branch: current_branch,
       force: true,
