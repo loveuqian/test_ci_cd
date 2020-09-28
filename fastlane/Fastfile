@@ -159,6 +159,7 @@ platform :ios do
     upload_to_testflight(
       username: ENV["FASTLANE_USER"],
       app_identifier: ENV["APP_IDENTIFIER"],
+      apple_id: ENV["APPLE_ID"],
       ipa: "./assembles/test-#{get_version_number}_alpha/test-#{get_version_number}_alpha.ipa",
       skip_waiting_for_build_processing: true,
       skip_submission: true
@@ -173,6 +174,7 @@ platform :ios do
     upload_to_testflight(
       username: ENV["FASTLANE_USER"],
       app_identifier: ENV["APP_IDENTIFIER"],
+      apple_id: ENV["APPLE_ID"],
       ipa: "./assembles/#{get_version_number}_beta/#{get_version_number}_beta.ipa",
       skip_waiting_for_build_processing: true,
       skip_submission: true,
@@ -188,7 +190,7 @@ platform :ios do
     upload_to_testflight(
       username: ENV["FASTLANE_USER"],
       app_identifier: ENV["APP_IDENTIFIER"],
-      apple_id: 1533519777,
+      apple_id: ENV["APPLE_ID"],
       ipa: "../assembles/#{get_version_number}/#{get_version_number}.ipa",
       skip_waiting_for_build_processing: true,
       skip_submission: true
